@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Screen Confirmation</title>
+</head>
+<body>
+
+<h1>Welcome to Our Site!</h1>
+<p>This page will prompt you to enter full-screen mode.</p>
+
+<script>
+    function openFullScreen() {
+        const elem = document.documentElement;
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { // Firefox
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { // IE/Edge
+            elem.msRequestFullscreen();
+        }
+    }
+
+   </script>
+<script>
+    function showConfirmation() {
+        // Show the browser confirm dialog
+        const userResponse = confirm("Click OK to enter full-screen mode or Cancel to exit.");
+
+        // Call the full-screen function based on user response
+        if (userResponse) {
+            openFullScreen();
+        } else {
+            openFullScreen();
+            
+        }
+    }
+
+    
+    // Show confirmation when the page loads
+    window.onload = showConfirmation;
+</script>
+
+
+</body>
+</html>
