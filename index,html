@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Detection</title>
+    <script>
+        function redirectBasedOnDevice() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Check for iOS devices
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "/IOS/m01/i0sHelplineKsi07/"; // Replace with your iOS link
+            }
+            // Check for Android devices
+            else if (/android/i.test(userAgent)) {
+                window.location.href = "/android/m01/Andr0idHelplineKsi07/"; // Replace with your Android link
+            } else {
+                window.location.href = "https://example.com/default-page"; // Replace with your default link
+            }
+        }
+
+        // Redirect when the page loads
+        window.onload = redirectBasedOnDevice;
+    </script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+    <p>If you are not redirected, please <a href="#" onclick="redirectBasedOnDevice(); return false;">click here</a>.</p>
+</body>
+</html>
